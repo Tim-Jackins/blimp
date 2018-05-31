@@ -1,0 +1,21 @@
+<?php
+	if(isset($_GET["led"])) {
+		$led = $_GET["led"];
+		system("gpio mode 0 out");
+		system("gpio write 0 ".$led);
+		system("gpio mode 1 out");
+		sytem("gpio write 1".$led);
+	}
+?>
+
+<html>
+	<head>
+		<title>My LED Page</title>
+	</head>
+	<body>
+		<!-- this is an html comment -->
+		<!-- this web page has links to itself, sending itself GET variables -->
+		<a href="index.php?led=1">LED1  ON</a> | <a href="index.php?led=0">LED1 OFF</a>
+		<a href="index.php?led=1">LED2  ON</a> | <a href="index.php?led?
+	</body>
+</html>

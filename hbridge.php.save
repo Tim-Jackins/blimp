@@ -1,0 +1,71 @@
+<?php
+	if(isset($_GET["led3"])) {
+		$led3 = $_GET["led3"];
+		system("gpio mode 2 out");
+		system("gpio write 2 ".$led3);
+	}
+	if(isset($_GET["led4"])) {
+		$led4 = $_GET["led4"];
+		system("gpio mode 3 out");
+		system("gpio write 3 ".$led4);
+	}
+	if(isset($_GET["led5"])) {
+		$led5 = $_GET["led5"];
+		system("gpio mode 4 out");
+		system("gpio write 4 ".$led5);
+	}
+	if(isset($_GET["led6"])) {
+		$led6 = $_GET["led6"];
+		system("gpio mode 5 out");
+		system("gpio write 5 ".$led6);
+	}
+	if(isset($_GET["led7"])) {
+		$led7 = $_GET["led7"];
+		system("gpio mode 0 out");
+		system("gpio write 0 ".$led7);
+	}
+	if(isset($_GET["led8"])) {
+		$led8 = $_GET["led8"];
+		system("gpio mode 1 out");
+		system("gpio write 1 ".$led8);
+	}
+?>
+
+<html>
+	<head>
+		<title>H Bridge Test</title>
+	</head>
+	<style>
+	.on, .off {
+		width:40%;
+		color:blue;
+		margin:20px;
+		padding:20px;
+		text-align:center;
+		font-size:40px;
+		font-family:arial;
+		display:inline-block;
+	}
+	.on {
+		background-color:GoldenRod;
+	}
+	.off {
+		background-color:MidnightBlue;
+	}
+	a {
+		text-decration:none;
+		color:PowderBlue;
+	}
+	</style>
+	<body>
+	<p>
+	<di
+v class = "on"><a href="hbridge.php?led3=1&led4=0&led5=1&led6=0&led7=<?php echo($led7) ?>&led8=<?php echo($led8) ?>">COUNTER CLOCKWISE</a></div>
+	<div class = "on"><a href="hbridge.php?led3=0&led4=1&led5=0&led6=1&led7=<?php echo($led7) ?>&led8=<?php echo($led8) ?>">CLOCKWISE</a></div>
+	<div class = "off"><a href="hbridge.php?led3=<?php echo($led3) ?>&led4=<?php echo($led4) ?>&led5=<?php echo($led5) ?>&led6=<?php echo($led6) ?>&led7=1&led8=<?php echo($led8) ?>">MOTOR 2 ON</a></div>
+	<div class = "off"><a href="hbridge.php?led3=<?php echo($led3) ?>&led4=<?php echo($led4) ?>&led5=<?php echo($led5) ?>&led6=<?php echo($led6) ?>&led7=<?php echo($led7) ?>&led8=1">MOTOR 3 ON</a></div>
+	<div class = "off"><a href="hbridge.php?led3=<?php echo($led3) ?>&led4=<?php echo($led4) ?>&led5=<?php echo($led5) ?>&led6=<?php echo($led6) ?>&led7=1&led8=1">MOTORS 1 AND 2 ON</a></div>
+	<div class = "off"><a href="hbridge.php?led3=0&led4=0&led5=0&led6=0&led7=0&led8=0">OFF</a></div>
+	</p>
+	</body>
+</html>
